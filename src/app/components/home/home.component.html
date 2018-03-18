@@ -1,1 +1,47 @@
-{{ test }}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Películas app</h1>
+    <p class="lead">Esta es un API para consumir recursos de una página web que nos brinda información de películas</p>
+  </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center color-green" >Cartelera</h1>
+            <hr>
+        </div>
+    </div>
+    <div class="row text-center" *ngIf="inTheatre">
+
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-12 div-pic-1" [ngStyle]="{'background-image' : 'url(' + (inTheatre[3] | imageMovie) + ')'}">
+        
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 div-pic-2" [ngStyle]="{'background-image' : 'url(' + (inTheatre[4] | imageMovie) + ')'}">
+
+                </div>
+                <div class="col-sm-6 div-pic-2" [ngStyle]="{'background-image' : 'url(' + (inTheatre[5] | imageMovie)  + ')'}">
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-6 div-pic-2" [ngStyle]="{'background-image' : 'url(' + (inTheatre[2] | imageMovie)  + ')'}">
+                    
+                </div>
+                <div class="col-sm-6 div-pic-2" [ngStyle]="{'background-image' : 'url(' + (inTheatre[1] | imageMovie)  + ')'}">
+                    
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 div-pic-1" [ngStyle]="{'background-image' : 'url(' + (inTheatre[0] | imageMovie)  + ')'}">
+        
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
