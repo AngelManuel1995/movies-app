@@ -9,9 +9,17 @@ import { MoviesService } from './services/movies.component';
 export class AppComponent {
 
   constructor( private _moviesService :MoviesService){
-    this._moviesService.getMoviesByPopularity()
-      .subscribe( data => {
-        console.log(data)
+    // this._moviesService.getMoviesByPopularity()
+    //   .subscribe( data => {
+    //     console.log(data)
+    //   })
+
+    // this._moviesService.searchMovie("Coco").subscribe( data => {
+    //   console.log(data)
+    // })
+
+      this._moviesService.getMoviesInTheatre().subscribe( res => {
+        console.log(res)
       })
   }
  
