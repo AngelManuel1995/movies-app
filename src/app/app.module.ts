@@ -7,19 +7,27 @@ import { AppComponent }     from './app.component';
 //My components
 import { NavbarComponent }  from './components/shared/navbar/navbar.component';
 import { HomeComponent }    from './components/home/home.component';
-
+import { DemoComponent }    from './components/demo/demo.component';
+import { SearchComponent }  from './components/search/search.component';
+import { MovieComponent }   from './components/movie/movie.component';
 //Services
 import { MoviesService }    from './services/movies.component';
 
 //Routes
 import { APP_ROUTING }      from './app.routes';
 
+//Pipes 
+import { ImageMoviePipe } from  './pipes/img-movie.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    HomeComponent
+    HomeComponent,
+    DemoComponent,
+    SearchComponent,
+    MovieComponent,
+    ImageMoviePipe
   ],
   imports: [
     BrowserModule,
