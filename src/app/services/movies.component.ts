@@ -8,23 +8,21 @@ export class MoviesService{
 
     private apikey:string = '5111e2a3e908b54a23aad500a15153d0';
     private urlMoviedb:string = 'https://api.themoviedb.org/3';
+    busqueda:any[] = [];
     constructor(private _jsonp:Jsonp){
 
     }
 
     getMoviesByPopularity(){
         let url:string = `${this.urlMoviedb}/discover/movie?sort_by=popularity.desc&api_key=${this.apikey}&language=es&callback=JSONP_CALLBACK`;
-        return this._jsonp.get( url ).map( res => {
-            console.log('Populares',res.json())
-            return res.json();
-        })
+        return this._jsonp.get( url ).map( res => res.json())
     }
 
     searchMovie( text:string ){
         let url = `${this.urlMoviedb}/discover/movie?query=${text}&sort_by=popularity.desc&api_key=${this.apikey}&language=es&callback=JSONP_CALLBACK`;
         return this._jsonp.get(url).map( res => {
-            console.log(res.json());
-            return res.json();
+            this.busqueda = res.json().results;   
+            return res.json().results;
         })
     }
 
@@ -38,18 +36,12 @@ export class MoviesService{
 
         let url = `${this.urlMoviedb}/discover/movie?primary_release_date.gte=${desdeStr}&primary_release_date.lte=${hastaStr}&api_key=${this.apikey}&language=es&callback=JSONP_CALLBACK`;
         
-        return this._jsonp.get(url).map(res=>{
-            console.log('In theatre',res.json());
-            return res.json();
-        })
+        return this._jsonp.get(url).map( res => res.json() )
     }
 
     getKidsMoviesByPopularity(){
 			let url:string = `${this.urlMoviedb}/discover/movie?certification_country=US&certification.lte=G&sort_by=popularity.desc&api_key=${this.apikey}&language=es&callback=JSONP_CALLBACK`;
-			return this._jsonp.get(url).map( (data) => {
-				console.log('Kids:',data.json())
-				return data.json();
-			})
+			return this._jsonp.get(url).map( (data) => data.json() )
     }
 
 }
