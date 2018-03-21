@@ -18,9 +18,9 @@ export class AppComponent {
     //   console.log(data)
     // })
 
-      this._moviesService.getMoviesInTheatre().subscribe( res => {
-        console.log(res)
-      })
+      // this._moviesService.getMoviesInTheatre().subscribe( res => {
+      //   console.log(res)
+      // })
   }
  
 }
