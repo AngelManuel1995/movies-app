@@ -2,6 +2,7 @@
 import { BrowserModule }    from '@angular/platform-browser';
 import { NgModule }         from '@angular/core';
 import { JsonpModule }      from '@angular/http';
+import { FormsModule }        from '@angular/forms';
 
 
 
@@ -32,11 +33,12 @@ import { ImageMoviePipe } from  './pipes/img-movie.pipe';
     SearchComponent,
     MovieComponent,
     GaleryComponent,
-    ImageMoviePipe
+    ImageMoviePipe,
   ],
   imports: [
     BrowserModule,
     JsonpModule,
+    FormsModule,
     APP_ROUTING
   ],
   providers: [
