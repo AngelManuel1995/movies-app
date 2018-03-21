@@ -1,1 +1,38 @@
-<h1>Hello from search component</h1>
+<div class="container main-container">
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="">
+				<label>Buscar</label>
+				<input class="form-control"
+							 [(ngModel)]="buscar"
+							 name="buscar"
+							 (keyup.enter)="searchMovie()"
+							 type="text"
+							 placeholder="Buscar una película">
+			</div>
+		</div>
+	</div><!--row-->
+	<br><br>
+
+	<div class="row">
+
+		<div class="card-columns">
+ 
+			<div class="card" *ngFor="let pelicula of _moviesService.busqueda">
+				<img class="card-img-top" [src]="pelicula | imageMovie" [alt]="pelicula.original_title">
+				<div class="card-body">
+					<h5 class="card-title text-center "><strong>{{pelicula.original_title}}</strong></h5>
+					<p class="card-text text-justify">{{pelicula.overview | slice:0-250}}</p>
+					<button type="button"
+									class="btn btn-outline-primary btn-block">
+						Ver más ...
+					</button>
+				</div>
+			</div>
+
+		</div>
+	
+	</div><!--row-->
+
+</div><!--container main-container-->
