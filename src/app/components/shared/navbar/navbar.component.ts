@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } 	 from '@angular/router';
 
 @Component({
 	selector:'app-navbar',
@@ -6,9 +7,16 @@ import { Component } from '@angular/core';
 })
 
 export class NavbarComponent{
-	public test:string = "It Works";
-	constructor(){
+
+	constructor(private _router:Router){
 
 	}
 
+	searchMovie(movie:string){
+		if(!movie){
+			return console.log('Ingrese algo para buscar')
+		}
+		console.log(movie)
+		this._router.navigate(['search', movie])
+	}
 }
