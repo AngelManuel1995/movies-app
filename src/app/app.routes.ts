@@ -17,6 +17,10 @@ const APP_ROUTES:Routes = [
         component:SearchComponent
     },
     {
+        path:'search/:text', 
+        component:SearchComponent
+    },
+    {
         path:'movie', 
         component:MovieComponent
     },
