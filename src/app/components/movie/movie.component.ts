@@ -9,18 +9,20 @@ import { MoviesService }	from '../../services/movies.component';
 
 export class MovieComponent implements OnInit{
 	
-	private movie:any;
-	private regresarA:string;
-	private busqueda:any;
+	 movie:any;
+	 regresarA:string = "";
+	 busqueda:string = "";
 	constructor( private _moviesService:MoviesService,
 				 private _activatedRoute:ActivatedRoute ){
 		
 		this._activatedRoute.params.subscribe(parametros => {
+			console.log(parametros)
+			this.regresarA = parametros['pag'];
+			console.log("PÁGINA DE BUSQUEDA", this.regresarA)
+			if(parametros['busqueda']){
+				this.busqueda = parametros['busqueda']
+			}
 			this._moviesService.getDetailMovie(parametros['id']).subscribe( movie => {
-				this.regresarA = parametros['pag'];
-				if(parametros['busqueda']){
-					this.busqueda = parametros['busqueda']
-				}
 				this.movie = movie
 			})
 		})
