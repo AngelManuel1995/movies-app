@@ -21,7 +21,11 @@ const APP_ROUTES:Routes = [
         component:SearchComponent
     },
     {
-        path:'movie', 
+        path:'movie/:id/:pag', 
+        component:MovieComponent
+    },
+    {
+        path:'movie/:id/:pag/:busqueda', 
         component:MovieComponent
     },
 	{ 
