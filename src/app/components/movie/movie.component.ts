@@ -1,4 +1,6 @@
 import { Component, OnInit} from '@angular/core';
+import { ActivatedRoute }	from '@angular/router';
+import { MoviesService }	from '../../services/movies.component';
 
 @Component({
 	selector:'app-movie',
@@ -7,8 +9,21 @@ import { Component, OnInit} from '@angular/core';
 
 export class MovieComponent implements OnInit{
 	
-	constructor(){
+	private movie:any;
+	private regresarA:string;
+	private busqueda:any;
+	constructor( private _moviesService:MoviesService,
+				 private _activatedRoute:ActivatedRoute ){
 		
+		this._activatedRoute.params.subscribe(parametros => {
+			this._moviesService.getDetailMovie(parametros['id']).subscribe( movie => {
+				this.regresarA = parametros['pag'];
+				if(parametros['busqueda']){
+					this.busqueda = parametros['busqueda']
+				}
+				this.movie = movie
+			})
+		})
 	}
 
 	ngOnInit(){
