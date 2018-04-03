@@ -9,8 +9,10 @@ import { MoviesService } 	 from '../../services/movies.component';
 
 export class SearchComponent implements OnInit{
 	
-	private buscar:string;
-	constructor(private _moviesService:MoviesService, private _activatedRoute:ActivatedRoute){
+	buscar:string = "";
+	constructor(private _moviesService:MoviesService, 
+				private _activatedRoute:ActivatedRoute){
+		// console.log("Search component")
 		this._activatedRoute.params.subscribe( parametros => {
 			if(parametros['text']){
 				this.buscar = parametros['text'];
@@ -24,6 +26,7 @@ export class SearchComponent implements OnInit{
 	}
 
 	searchMovie(){
+		console.log(this.buscar)
 		if(this.buscar.length === 0){
 			return console.log("Debes escribir algo para buscar");
 		}
